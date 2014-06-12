@@ -60,6 +60,7 @@ static inline NSString * TKKeyPathFromOperationState(TKOperationState state) {
 @interface TKHTTPRequest () {
 	
 	NSInteger _totalExpectedImageSize,_receivedDataBytes;
+        BOOL _cancelled;
 	
 #if NS_BLOCKS_AVAILABLE
 	TKBasicBlock startedBlock;
@@ -72,7 +73,7 @@ static inline NSString * TKKeyPathFromOperationState(TKOperationState state) {
 @property (nonatomic,strong) TKHTTPRequest *selfRetained;
 
 @property (nonatomic,assign) TKOperationState state;
-@property (nonatomic,readwrite,assign,getter=isCancelled) BOOL cancelled;
+@property (nonatomic,assign,getter=isCancelled) BOOL cancelled;
 
 @property (nonatomic,strong) NSURLConnection *connection;
 @property (nonatomic,strong) NSMutableData *data;
@@ -428,6 +429,9 @@ static inline NSString * TKKeyPathFromOperationState(TKOperationState state) {
 	
 }
 
+- (BOOL) isCancelled{
+    return _cancelled;
+}
 
 - (void) setCancelled:(BOOL)cancelled {
     [self willChangeValueForKey:@"isCancelled"];
