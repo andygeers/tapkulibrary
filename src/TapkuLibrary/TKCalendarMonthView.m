@@ -332,11 +332,11 @@ static NSNumberFormatter *numberFormatter = nil;
 	}
 	
 	
-    float myColorValues[] = {1, 1, 1, .8};
+    CGFloat myColorValues[] = {1, 1, 1, .8};
     CGColorSpaceRef myColorSpace = CGColorSpaceCreateDeviceRGB();
 	CGColorRef whiteColor = CGColorCreate(myColorSpace, myColorValues);
 
-	float darkColorValues[] = {0, 0, 0, .5};
+	CGFloat darkColorValues[] = {0, 0, 0, .5};
     CGColorRef darkColor = CGColorCreate(myColorSpace, darkColorValues);
 	
 
