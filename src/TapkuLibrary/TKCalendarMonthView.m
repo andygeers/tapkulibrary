@@ -519,7 +519,8 @@ static NSNumberFormatter *numberFormatter = nil;
 		self.selectedImageView.image = [UIImage imageWithContentsOfFile:path];
 		markWasOnToday = NO;
 	} else {
-        self.selectedImageView.image = [UIImage imageWithContentsOfFile:TKBUNDLE(@"calendar/Month Calendar Date Tile Selected.png")];
+        UIColor* tintColour = [UIColor colorWithWhite:0.7 alpha:1];
+        self.selectedImageView.image = [TKCalendarMonthView image:[UIImage imageWithContentsOfFile:TKBUNDLE(@"calendar/Month Calendar Date Tile Selected.png")] withTint:tintColour];
     }
 	
 	[self addSubview:self.selectedImageView];
